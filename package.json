@@ -1,0 +1,19 @@
+{
+  "name": "quizlet-prototype",
+  "version": "1.0.0",
+  "description": "Simple Quizlet-like flashcard app",
+  "scripts": {
+    "install-all": "cd backend && npm install && cd ../frontend && npm install",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "server": "cd backend && node server.js",
+    "client": "cd frontend && npm start",
+    "setup-db": "cd backend && node init-db.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}
+

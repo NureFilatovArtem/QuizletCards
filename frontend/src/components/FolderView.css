@@ -1,0 +1,113 @@
+.folder-view {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.folder-view-header {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.back-btn {
+    background: none;
+    border: none;
+    color: #4CAF50;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    padding: 0;
+    margin-bottom: 10px;
+}
+
+.back-btn:hover {
+    text-decoration: underline;
+}
+
+.folder-view-title {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    margin-bottom: 14px;
+}
+
+.folder-view-title h2 {
+    margin: 0;
+    color: #333;
+}
+
+.folder-view-count {
+    font-size: 14px;
+    color: #999;
+}
+
+.folder-view-actions {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.fv-action-btn {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.fv-action-btn.import {
+    background: #e8f5e9;
+    color: #2e7d32;
+}
+
+.fv-action-btn.import:hover {
+    background: #c8e6c9;
+}
+
+.fv-action-btn.test {
+    background: #4CAF50;
+    color: white;
+}
+
+.fv-action-btn.test:hover:not(:disabled) {
+    background: #43a047;
+}
+
+.fv-action-btn.test:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+}
+
+.fv-action-btn.delete {
+    background: #ffebee;
+    color: #c62828;
+}
+
+.fv-action-btn.delete:hover {
+    background: #ffcdd2;
+}
+
+.folder-empty {
+    background: white;
+    padding: 40px 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    color: #999;
+}
+
+.folder-cards {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.folder-cards h3 {
+    margin: 0 0 16px;
+    color: #333;
+}

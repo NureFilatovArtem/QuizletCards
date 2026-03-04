@@ -1,0 +1,272 @@
+/* Overlay */
+.import-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  animation: fadeIn 0.2s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Modal */
+.import-modal {
+  background: white;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 640px;
+  max-height: 85vh;
+  overflow-y: auto;
+  padding: 28px;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
+  animation: slideUp 0.25s ease;
+}
+
+@keyframes slideUp {
+  from { transform: translateY(30px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+.import-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.import-header h2 {
+  margin: 0;
+  font-size: 22px;
+  color: #333;
+}
+
+.import-close-btn {
+  background: none;
+  border: none;
+  font-size: 28px;
+  color: #999;
+  cursor: pointer;
+  line-height: 1;
+  padding: 0 4px;
+}
+
+.import-close-btn:hover {
+  color: #333;
+}
+
+/* Sections */
+.import-section {
+  margin-bottom: 20px;
+}
+
+.import-label {
+  display: block;
+  font-weight: 600;
+  color: #444;
+  margin-bottom: 8px;
+  font-size: 14px;
+}
+
+.invalid-badge {
+  color: #e53935;
+  font-weight: 500;
+}
+
+/* Inputs */
+.import-input {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 14px;
+  font-family: inherit;
+  box-sizing: border-box;
+}
+
+.import-input:focus {
+  outline: none;
+  border-color: #4CAF50;
+  box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.12);
+}
+
+.import-input.small {
+  width: 100px;
+}
+
+/* Folder toggle */
+.folder-mode-toggle {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.folder-mode-toggle button {
+  padding: 7px 16px;
+  border: 1.5px solid #4CAF50;
+  background: white;
+  color: #4CAF50;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 500;
+  transition: all 0.2s;
+}
+
+.folder-mode-toggle button.active {
+  background: #4CAF50;
+  color: white;
+}
+
+/* Format buttons */
+.format-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.format-btn {
+  padding: 7px 14px;
+  border: 1.5px solid #ddd;
+  background: white;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 13px;
+  transition: all 0.2s;
+  color: #555;
+}
+
+.format-btn:hover {
+  border-color: #4CAF50;
+  color: #4CAF50;
+}
+
+.format-btn.active {
+  border-color: #4CAF50;
+  background: #e8f5e9;
+  color: #2e7d32;
+  font-weight: 500;
+}
+
+.custom-sep-row {
+  display: flex;
+  gap: 16px;
+  margin-top: 8px;
+}
+
+.custom-sep-row label {
+  display: block;
+  font-size: 12px;
+  color: #777;
+  margin-bottom: 4px;
+}
+
+/* Textarea */
+.import-textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 14px;
+  font-family: inherit;
+  resize: vertical;
+  box-sizing: border-box;
+}
+
+.import-textarea:focus {
+  outline: none;
+  border-color: #4CAF50;
+  box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.12);
+}
+
+/* Preview */
+.preview-list {
+  max-height: 180px;
+  overflow-y: auto;
+  border: 1px solid #eee;
+  border-radius: 6px;
+}
+
+.preview-card {
+  display: flex;
+  align-items: center;
+  padding: 8px 12px;
+  font-size: 13px;
+  border-bottom: 1px solid #f0f0f0;
+  gap: 8px;
+}
+
+.preview-card:last-child {
+  border-bottom: none;
+}
+
+.preview-card.invalid {
+  background: #fff5f5;
+  color: #c62828;
+}
+
+.preview-front {
+  flex: 1;
+  font-weight: 500;
+  color: #333;
+}
+
+.preview-arrow {
+  color: #aaa;
+  flex-shrink: 0;
+}
+
+.preview-back {
+  flex: 1;
+  color: #666;
+}
+
+/* Actions */
+.import-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 8px;
+}
+
+.import-cancel-btn {
+  padding: 10px 20px;
+  border: 1.5px solid #ddd;
+  background: white;
+  border-radius: 6px;
+  font-size: 14px;
+  cursor: pointer;
+  color: #666;
+  transition: all 0.2s;
+}
+
+.import-cancel-btn:hover {
+  border-color: #bbb;
+}
+
+.import-submit-btn {
+  padding: 10px 24px;
+  background: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.import-submit-btn:hover:not(:disabled) {
+  background: #43a047;
+}
+
+.import-submit-btn:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+}

@@ -1,0 +1,26 @@
+.app {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+.app-header {
+  background: white;
+  padding: 20px 24px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.app-header h1 {
+  color: #333;
+  font-size: 26px;
+  margin: 0;
+}
+
+.loading {
+  text-align: center;
+  padding: 60px 20px;
+  color: #999;
+  font-size: 16px;
+}

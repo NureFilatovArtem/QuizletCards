@@ -1,0 +1,124 @@
+.folder-list-container {
+    background: white;
+    padding: 24px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.folder-list-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.folder-list-header h2 {
+    margin: 0;
+    color: #333;
+}
+
+.import-btn {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 10px 20px;
+    background: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.import-btn:hover {
+    background: #43a047;
+}
+
+.import-btn-icon {
+    font-size: 18px;
+    line-height: 1;
+}
+
+/* Empty state */
+.empty-folders {
+    text-align: center;
+    padding: 50px 20px;
+    color: #888;
+}
+
+.empty-icon {
+    font-size: 48px;
+    margin-bottom: 12px;
+}
+
+.empty-folders p {
+    font-size: 16px;
+    margin: 4px 0;
+}
+
+.empty-sub {
+    font-size: 14px !important;
+    color: #aaa;
+}
+
+/* Folder grid */
+.folder-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.folder-card {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 16px 18px;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.folder-card:hover {
+    border-color: #4CAF50;
+    box-shadow: 0 2px 8px rgba(76, 175, 80, 0.12);
+    transform: translateY(-1px);
+}
+
+.folder-icon {
+    font-size: 28px;
+    flex-shrink: 0;
+}
+
+.folder-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.folder-name {
+    margin: 0 0 2px;
+    font-size: 16px;
+    color: #333;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.folder-count {
+    margin: 0;
+    font-size: 13px;
+    color: #999;
+}
+
+.folder-arrow {
+    font-size: 24px;
+    color: #ccc;
+    flex-shrink: 0;
+    transition: color 0.2s;
+}
+
+.folder-card:hover .folder-arrow {
+    color: #4CAF50;
+}

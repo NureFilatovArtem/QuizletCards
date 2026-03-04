@@ -1,0 +1,272 @@
+.test-mode-container {
+  background: white;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  max-width: 650px;
+  margin: 0 auto;
+}
+
+/* Back button in test */
+.test-back-btn {
+  background: none;
+  border: none;
+  color: #4CAF50;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  padding: 0;
+  margin-bottom: 16px;
+  display: block;
+}
+
+.test-back-btn:hover {
+  text-decoration: underline;
+}
+
+/* Start screen */
+.test-start {
+  text-align: center;
+  padding: 30px 20px;
+}
+
+.test-start h2 {
+  margin-bottom: 6px;
+  color: #333;
+}
+
+.test-folder-label {
+  color: #4CAF50;
+  font-weight: 600;
+  font-size: 15px;
+  margin-bottom: 16px;
+}
+
+.test-start p {
+  color: #666;
+  margin-bottom: 10px;
+  font-size: 15px;
+}
+
+.test-description {
+  font-size: 13px !important;
+  color: #aaa !important;
+  margin-bottom: 24px !important;
+}
+
+.start-test-btn {
+  padding: 14px 40px;
+  background: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.start-test-btn:hover:not(:disabled) {
+  background: #43a047;
+}
+
+.start-test-btn:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+}
+
+/* Header & progress */
+.test-header {
+  margin-bottom: 24px;
+}
+
+.test-header-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.test-header-top h2 {
+  margin: 0;
+  color: #333;
+  font-size: 18px;
+}
+
+.test-score-live {
+  font-size: 14px;
+  font-weight: 600;
+  color: #4CAF50;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 6px;
+  background: #e0e0e0;
+  border-radius: 3px;
+  overflow: hidden;
+  margin-bottom: 8px;
+}
+
+.progress-fill {
+  height: 100%;
+  background: #4CAF50;
+  transition: width 0.3s;
+  border-radius: 3px;
+}
+
+.progress-text {
+  color: #999;
+  font-size: 13px;
+  margin: 0;
+}
+
+/* Question */
+.test-question {
+  margin-bottom: 24px;
+}
+
+.test-question h3 {
+  margin-bottom: 10px;
+  color: #555;
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.question-text {
+  background: #f8f9fa;
+  padding: 20px;
+  border-radius: 6px;
+  font-size: 17px;
+  color: #333;
+  border-left: 4px solid #4CAF50;
+  line-height: 1.5;
+}
+
+/* Options */
+.options-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.option-btn {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  width: 100%;
+  padding: 14px 16px;
+  background: white;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s;
+  text-align: left;
+  font-size: 15px;
+}
+
+.option-btn:hover:not(:disabled):not(.correct):not(.incorrect):not(.dimmed) {
+  border-color: #4CAF50;
+  background: #f1f8e9;
+}
+
+.option-letter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: #f0f0f0;
+  font-weight: 600;
+  font-size: 13px;
+  color: #666;
+  flex-shrink: 0;
+}
+
+.option-text {
+  flex: 1;
+  color: #333;
+}
+
+/* Result states */
+.option-btn.correct {
+  border-color: #4CAF50;
+  background: #e8f5e9;
+}
+
+.option-btn.correct .option-letter {
+  background: #4CAF50;
+  color: white;
+}
+
+.option-btn.incorrect {
+  border-color: #e53935;
+  background: #ffebee;
+}
+
+.option-btn.incorrect .option-letter {
+  background: #e53935;
+  color: white;
+}
+
+.option-btn.dimmed {
+  opacity: 0.45;
+}
+
+/* Finished screen */
+.test-finished {
+  text-align: center;
+  padding: 30px 20px;
+}
+
+.test-finished h2 {
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.score-circle {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #4CAF50, #66BB6A);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 16px;
+  box-shadow: 0 4px 16px rgba(76, 175, 80, 0.3);
+}
+
+.score-number {
+  color: white;
+  font-size: 32px;
+  font-weight: 700;
+}
+
+.score-detail {
+  color: #666;
+  font-size: 16px;
+  margin-bottom: 24px;
+}
+
+.test-finished-actions {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+}
+
+.back-to-folder-btn {
+  padding: 12px 28px;
+  background: white;
+  color: #4CAF50;
+  border: 2px solid #4CAF50;
+  border-radius: 6px;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.back-to-folder-btn:hover {
+  background: #f1f8e9;
+}
