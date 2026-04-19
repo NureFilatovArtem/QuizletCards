@@ -3,16 +3,21 @@ import './App.css';
 import FolderList from './components/FolderList';
 import FolderView from './components/FolderView';
 import TestMode from './components/TestMode';
+import MatchMode from './components/MatchMode';
+import CardBrowser from './components/CardBrowser';
 import ImportCards from './components/ImportCards';
+import { getHardCards } from './utils/srStorage';
 
 const API_URL = 'http://localhost:3001/api';
 
 function App() {
-  // Navigation: 'folders' | 'folder' | 'test'
+  // Navigation: 'folders' | 'folder' | 'test' | 'match' | 'browse'
   const [view, setView] = useState('folders');
   const [folders, setFolders] = useState([]);
   const [selectedFolderId, setSelectedFolderId] = useState(null);
   const [folderCards, setFolderCards] = useState([]);
+  const [hardCards, setHardCards] = useState([]);
+  const [testFilter, setTestFilter] = useState(null); // null = all, array = hard cards
   const [loading, setLoading] = useState(true);
   const [showImport, setShowImport] = useState(false);
 
@@ -39,8 +44,11 @@ function App() {
       const res = await fetch(`${API_URL}/folders/${folderId}/cards`);
       const data = await res.json();
       setFolderCards(data);
+      setHardCards(getHardCards(folderId, data));
+      return data;
     } catch (err) {
       console.error('Error fetching folder cards:', err);
+      return [];
     }
   };
 
@@ -56,14 +64,41 @@ function App() {
     setView('folders');
     setSelectedFolderId(null);
     setFolderCards([]);
-    fetchFolders(); // refresh counts
+    setHardCards([]);
+    setTestFilter(null);
+    fetchFolders();
   };
 
   const handleStartTest = () => {
+    setTestFilter(null);
+    setView('test');
+  };
+
+  const handleStartHardTest = () => {
+    setTestFilter(hardCards);
     setView('test');
   };
 
   const handleBackFromTest = () => {
+    // Refresh hard cards after test (SR data may have changed)
+    setHardCards(getHardCards(selectedFolderId, folderCards));
+    setTestFilter(null);
+    setView('folder');
+  };
+
+  const handleStartMatch = () => {
+    setView('match');
+  };
+
+  const handleBackFromMatch = () => {
+    setView('folder');
+  };
+
+  const handleStartBrowse = () => {
+    setView('browse');
+  };
+
+  const handleBackFromBrowse = () => {
     setView('folder');
   };
 
@@ -114,7 +149,6 @@ function App() {
   const handleImport = async (folder, cards) => {
     let folderId = folder.id;
 
-    // Create folder if new
     if (!folderId) {
       const res = await fetch(`${API_URL}/folders`, {
         method: 'POST',
@@ -126,7 +160,6 @@ function App() {
       folderId = created.id;
     }
 
-    // Bulk import cards
     const res = await fetch(`${API_URL}/folders/${folderId}/cards/bulk`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -134,7 +167,6 @@ function App() {
     });
     if (!res.ok) throw new Error('Failed to import cards');
 
-    // Refresh and navigate to the folder
     await fetchFolders();
     await handleSelectFolder(folderId);
   };
@@ -165,11 +197,15 @@ function App() {
         <FolderView
           folder={selectedFolder}
           cards={folderCards}
+          hardCardCount={hardCards.length}
           onBack={handleBackToFolders}
           onDeleteCard={handleDeleteCard}
           onAddCard={handleAddCardToFolder}
           onOpenImport={() => setShowImport(true)}
           onStartTest={handleStartTest}
+          onStartHardTest={handleStartHardTest}
+          onStartMatch={handleStartMatch}
+          onStartBrowse={handleStartBrowse}
           onDeleteFolder={handleDeleteFolder}
         />
       )}
@@ -177,8 +213,26 @@ function App() {
       {view === 'test' && selectedFolder && (
         <TestMode
           cards={folderCards}
+          filterCards={testFilter}
+          folderId={selectedFolderId}
           folderName={selectedFolder.name}
           onBack={handleBackFromTest}
+        />
+      )}
+
+      {view === 'match' && selectedFolder && (
+        <MatchMode
+          cards={folderCards}
+          folderName={selectedFolder.name}
+          onBack={handleBackFromMatch}
+        />
+      )}
+
+      {view === 'browse' && selectedFolder && (
+        <CardBrowser
+          cards={folderCards}
+          folderName={selectedFolder.name}
+          onBack={handleBackFromBrowse}
         />
       )}
 
