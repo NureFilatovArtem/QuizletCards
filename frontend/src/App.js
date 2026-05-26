@@ -6,12 +6,13 @@ import TestMode from './components/TestMode';
 import MatchMode from './components/MatchMode';
 import CardBrowser from './components/CardBrowser';
 import ImportCards from './components/ImportCards';
+import RealDutchFluency from './components/rdf/RealDutchFluency';
 import { getHardCards } from './utils/srStorage';
 
 const API_URL = 'http://localhost:3001/api';
 
 function App() {
-  // Navigation: 'folders' | 'folder' | 'test' | 'match' | 'browse'
+  // Navigation: 'folders' | 'folder' | 'test' | 'match' | 'browse' | 'rdf'
   const [view, setView] = useState('folders');
   const [folders, setFolders] = useState([]);
   const [selectedFolderId, setSelectedFolderId] = useState(null);
@@ -183,7 +184,17 @@ function App() {
     <div className="app">
       <header className="app-header">
         <h1>Quizlet Prototype</h1>
+        <button
+          onClick={() => setView('rdf')}
+          style={{
+            marginLeft: 16, padding: '8px 16px', borderRadius: 999,
+            border: 0, background: '#ff5a3c', color: '#fff', cursor: 'pointer', fontWeight: 600,
+          }}>
+          🇧🇪 Real Dutch Fluency
+        </button>
       </header>
+
+      {view === 'rdf' && <RealDutchFluency onBack={() => setView('folders')} />}
 
       {view === 'folders' && (
         <FolderList

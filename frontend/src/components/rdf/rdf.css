@@ -1,0 +1,149 @@
+/* Real Dutch Fluency — shared styles. */
+
+.rdf {
+  --rdf-bg: #f5f7fb;
+  --rdf-card: #ffffff;
+  --rdf-border: #e3e7ef;
+  --rdf-text: #1b2230;
+  --rdf-muted: #6b7385;
+  --rdf-accent: #ff5a3c;        /* Belgian red */
+  --rdf-accent-2: #ffd23f;      /* Belgian yellow */
+  --rdf-good: #2bb673;
+  --rdf-bad:  #e04545;
+  --rdf-radius: 14px;
+  --rdf-shadow: 0 2px 8px rgba(20, 28, 50, 0.06);
+  padding: 24px;
+  background: var(--rdf-bg);
+  min-height: 100vh;
+  color: var(--rdf-text);
+}
+
+.rdf-header {
+  display: flex; align-items: center; justify-content: space-between;
+  margin-bottom: 24px;
+}
+.rdf-header h2 { margin: 0; font-size: 28px; letter-spacing: -0.02em; }
+.rdf-back {
+  background: none; border: 1px solid var(--rdf-border);
+  border-radius: 999px; padding: 6px 14px; cursor: pointer; font-size: 14px;
+}
+.rdf-back:hover { background: #eef1f7; }
+
+.rdf-stats {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px;
+  margin-bottom: 24px;
+}
+.rdf-stat {
+  background: var(--rdf-card); border-radius: var(--rdf-radius);
+  border: 1px solid var(--rdf-border); padding: 14px 16px;
+  box-shadow: var(--rdf-shadow);
+}
+.rdf-stat-label { font-size: 12px; text-transform: uppercase; letter-spacing: 0.06em; color: var(--rdf-muted); }
+.rdf-stat-value { font-size: 26px; font-weight: 700; margin-top: 4px; }
+.rdf-stat-sub  { font-size: 12px; color: var(--rdf-muted); }
+
+.rdf-tiles {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 14px;
+}
+.rdf-tile {
+  background: var(--rdf-card); border: 1px solid var(--rdf-border);
+  border-radius: var(--rdf-radius); padding: 18px; cursor: pointer;
+  text-align: left; transition: transform .12s ease, box-shadow .12s ease;
+  box-shadow: var(--rdf-shadow);
+}
+.rdf-tile:hover { transform: translateY(-2px); box-shadow: 0 6px 18px rgba(20,28,50,0.08); }
+.rdf-tile h3 { margin: 6px 0 4px; font-size: 17px; }
+.rdf-tile p  { margin: 0; color: var(--rdf-muted); font-size: 13px; }
+.rdf-tile-emoji { font-size: 22px; }
+
+.rdf-card {
+  background: var(--rdf-card); border: 1px solid var(--rdf-border);
+  border-radius: var(--rdf-radius); padding: 22px; box-shadow: var(--rdf-shadow);
+  margin-bottom: 18px;
+}
+.rdf-card-label {
+  font-size: 11px; text-transform: uppercase; letter-spacing: .08em;
+  color: var(--rdf-muted); margin-bottom: 8px;
+}
+.rdf-prompt { font-size: 20px; line-height: 1.4; margin: 0 0 18px; }
+
+.rdf-options { display: grid; gap: 10px; }
+.rdf-option {
+  text-align: left; padding: 14px 16px; background: #fff;
+  border: 1px solid var(--rdf-border); border-radius: 12px; cursor: pointer;
+  font-size: 15px; transition: border-color .12s;
+}
+.rdf-option:hover { border-color: #c8cee0; }
+.rdf-option.selected { border-color: var(--rdf-accent); }
+.rdf-option.correct  { border-color: var(--rdf-good); background: #e9f7ef; }
+.rdf-option.wrong    { border-color: var(--rdf-bad);  background: #fbecec; }
+.rdf-option .score   { float: right; color: var(--rdf-muted); font-size: 13px; }
+
+.rdf-feedback {
+  margin-top: 14px; padding: 14px 16px; border-radius: 12px;
+  background: #f1f4fb; border: 1px dashed var(--rdf-border);
+}
+.rdf-feedback h4 { margin: 0 0 6px; }
+.rdf-feedback ul { margin: 6px 0 0 18px; padding: 0; }
+.rdf-feedback li { margin: 3px 0; }
+
+.rdf-actions { display: flex; gap: 10px; margin-top: 16px; }
+.rdf-btn {
+  background: var(--rdf-accent); color: #fff; border: 0;
+  border-radius: 999px; padding: 10px 18px; cursor: pointer; font-weight: 600;
+}
+.rdf-btn:hover { background: #e64a2d; }
+.rdf-btn.ghost { background: transparent; color: var(--rdf-text); border: 1px solid var(--rdf-border); }
+.rdf-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+
+.rdf-meta { display: flex; gap: 8px; color: var(--rdf-muted); font-size: 12px; margin-bottom: 10px; }
+.rdf-tag {
+  display: inline-block; padding: 2px 8px; border-radius: 999px;
+  background: #eef1f7; color: var(--rdf-muted); font-size: 11px;
+}
+.rdf-tag.level { background: #fff4e0; color: #a06000; }
+.rdf-tag.flemish { background: #ffe9e4; color: #a8311b; }
+.rdf-tag.slang   { background: #efe6ff; color: #5b3aa6; }
+
+/* Fast response */
+.rdf-timer-bar { height: 6px; background: #eef1f7; border-radius: 4px; overflow: hidden; margin-bottom: 14px; }
+.rdf-timer-fill { height: 100%; background: var(--rdf-accent); transition: width .1s linear; }
+.rdf-timer-fill.warn { background: #f5a623; }
+.rdf-timer-fill.danger { background: var(--rdf-bad); }
+.rdf-fast-input {
+  width: 100%; padding: 14px 16px; font-size: 16px;
+  border: 1px solid var(--rdf-border); border-radius: 12px; box-sizing: border-box;
+}
+
+/* Sentence builder */
+.rdf-tokens { display: flex; flex-wrap: wrap; gap: 8px; margin: 12px 0; min-height: 50px; padding: 10px; border: 1px dashed var(--rdf-border); border-radius: 12px; background: #fafbff; }
+.rdf-token {
+  padding: 8px 12px; background: #fff; border: 1px solid var(--rdf-border);
+  border-radius: 10px; cursor: pointer; font-size: 15px; user-select: none;
+}
+.rdf-token:hover { border-color: #c8cee0; }
+.rdf-token.placed { opacity: 0.4; cursor: default; }
+.rdf-slot { font-style: italic; color: var(--rdf-muted); }
+
+/* Speech decoder */
+.rdf-decoder-row {
+  display: grid; grid-template-columns: 1fr auto 1fr; align-items: center;
+  gap: 14px; padding: 14px; border: 1px solid var(--rdf-border); border-radius: 12px;
+  margin-bottom: 10px; background: #fff;
+}
+.rdf-decoder-textbook, .rdf-decoder-real { font-size: 16px; }
+.rdf-decoder-real { color: var(--rdf-accent); font-weight: 600; }
+.rdf-decoder-arrow { color: var(--rdf-muted); }
+.rdf-decoder-detail { font-size: 13px; color: var(--rdf-muted); margin-top: 8px; }
+
+/* Vocabulary list */
+.rdf-vocab-list { display: grid; gap: 10px; }
+.rdf-vocab-item { padding: 14px; background: #fff; border: 1px solid var(--rdf-border); border-radius: 12px; }
+.rdf-vocab-head { display: flex; justify-content: space-between; align-items: baseline; }
+.rdf-vocab-word { font-size: 18px; font-weight: 700; }
+.rdf-vocab-meaning { color: var(--rdf-muted); margin: 4px 0 6px; }
+.rdf-vocab-example { font-style: italic; color: #3a4358; }
+
+@media (max-width: 720px) {
+  .rdf-stats { grid-template-columns: repeat(2, 1fr); }
+}

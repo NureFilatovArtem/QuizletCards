@@ -2,6 +2,7 @@ const express = require('express');
 const cors = require('cors');
 const sqlite3 = require('sqlite3').verbose();
 const path = require('path');
+const { registerRDF } = require('./realDutchFluency');
 
 const app = express();
 const PORT = 3001;
@@ -42,6 +43,9 @@ db.serialize(() => {
     // Ignore error if column already exists
   });
 });
+
+// ─── REAL DUTCH FLUENCY ───
+registerRDF(app, db);
 
 // Routes
 
